@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOGUE - Suzana 21st Edition</title>
+    <meta name="description"
+        content="Uma edição especial de aniversário para a Suzana: trilha sonora, jogo da memória, memórias e uma carta de coração.">
+    <meta name="theme-color" content="#4A0E17">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="VOGUE - Suzana 21st Edition">
+    <meta property="og:description" content="Uma edição especial de aniversário feita com carinho.">
+    <meta property="og:image" content="assets/images/capa-vogue.jpeg">
+
+
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%234A0E17%22/><text x=%2250%22 y=%2276%22 font-size=%2272%22 font-family=%22Georgia,serif%22 font-weight=%22bold%22 text-anchor=%22middle%22 fill=%22%23FAFAFA%22>V</text></svg>">
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Reenie+Beanie&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <!-- CABEÇALHO EDITORIAL -->
+    <header class="vogue-header">
+        <p class="issue-tag">SPECIAL EDITION • ISSUE N° 21</p>
+        <h1 class="vogue-logo">VOGUE</h1>
+        <p class="sub-tag">SUZANA'S WORLD — ICONIC SINCE BIRTH</p>
+    </header>
+
+    <!-- FAIXA ROLANTE -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <div class="marquee-group">
+                <span>SUZANA</span><span>✦</span><span>21
+                    YEARS</span><span>✦</span><span>ICONIC</span><span>✦</span><span>MAIN
+                    CHARACTER</span><span>✦</span><span>SERVING LOOKS</span><span>✦</span><span>BIRTHDAY
+                    EDITION</span><span>✦</span>
+            </div>
+            <div class="marquee-group">
+                <span>SUZANA</span><span>✦</span><span>21
+                    YEARS</span><span>✦</span><span>ICONIC</span><span>✦</span><span>MAIN
+                    CHARACTER</span><span>✦</span><span>SERVING LOOKS</span><span>✦</span><span>BIRTHDAY
+                    EDITION</span><span>✦</span>
+            </div>
+        </div>
+    </div>
+
+    <main class="container" id="conteudo">
+
+        <!-- HERO (CAPA) -->
+        <section class="hero-cover" aria-label="Capa da edição">
+            <div class="cover-image-wrapper">
+                <img src="assets/images/capa-vogue..jpeg" alt="Suzana na capa da edição especial de 21 anos"
+                    class="cover-img" id="cover-img" fetchpriority="high" decoding="async">
+                <div class="cover-overlay">
+                    <span class="badge">BIRTHDAY EDITION</span>
+                    <h2 class="hero-title">SUZANA<br><span>21 YEARS</span></h2>
+                    <p class="hero-caption">"Iconic, elegant and living her best life."</p>
+                </div>
+                <span class="hero-21" aria-hidden="true">21</span>
+            </div>
+        </section>
+
+        <section class="bento-grid">
+
+            <!-- COVER STORY (MATÉRIA DE REVISTA) -->
+            <article class="bento-card spread reveal">
+                <div class="spread-photo">
+                    <img src="assets/images/suzi-1.jpeg" alt="Suzana e a amiga juntas, sorrindo" loading="lazy"
+                        decoding="async">
+                    <span class="sticker">COVER STORY</span>
+                    <span class="photo-note">🤍</span>
+                </div>
+                <div class="spread-text">
+                    <p class="kicker"><span>01</span> COVER STORY · PÁG. 21</p>
+                    <h2 class="spread-title">Suzana: <em>A Edição Definitiva dos 21 Anos.</em></h2>
+                    <p class="lede dropcap">Marcante, autêntica e dona de um brilho que não se apaga.</p>
+                    <p class="body-copy">Chegar aos 21 anos é entender o valor da própria essência. Suzana, você carrega
+                        uma combinação rara de elegância, força e autenticidade que inspira qualquer um ao seu redor.
+                        Este espaço é uma homenagem à sua luz única. Que este novo capítulo venha carregado de momentos
+                        inesquecíveis, grandes conquistas e a liberdade de continuar brilhando sem pedir licença.</p>
+
+                    <ul class="stats">
+                        <li><strong data-count="21">21</strong><span>anos de brilho</span></li>
+                        <li><strong>∞</strong><span>risadas</span></li>
+                        <li><strong data-count="100" data-suffix="%">100%</strong><span>iconic</span></li>
+                    </ul>
+
+                    <p class="signature">Sua amizade é um verdadeiro presente na minha vida, feliz aniversário! ❤️</p>
+                </div>
+            </article>
+
+            <!-- SOUNDTRACK -->
+            <article class="bento-card music-card reveal" id="music-card">
+                <div class="card-header">
+                    <h2 class="tag"><span>02</span> SOUNDTRACK</h2>
+                    <span class="now-playing"><span class="live-dot" id="live-dot" aria-hidden="true"></span><span
+                            id="player-status">PRONTA PRA TOCAR</span></span>
+                </div>
+
+                <div class="vinyl-wrap" aria-hidden="true">
+                    <div class="vinyl" id="vinyl">
+                        <div class="vinyl-label"><span>ANGEL</span></div>
+                    </div>
+                    <div class="tonearm"></div>
+                </div>
+
+                <div class="track">
+                    <h3>Angel</h3>
+                    <p>Massive Attack</p>
+                    <div class="chips"><span>trip-hop</span><span>Mezzanine · 1998</span></div>
+                </div>
+
+                <div class="eq" id="eq" aria-hidden="true"></div>
+
+                <audio id="audio-player" src="assets/audio/audio-massive-attack-angel_[cut_312sec].mp3"
+                    preload="metadata"></audio>
+                <div class="player-controls">
+                    <button type="button" id="play-btn" class="play-btn" aria-label="Tocar música">▶</button>
+                    <div class="seek-row">
+                        <span id="time-current" class="time">0:00</span>
+                        <input type="range" id="seek" class="seek" min="0" max="100" step="0.1" value="0"
+                            aria-label="Posição da música">
+                        <span id="time-total" class="time">0:00</span>
+                    </div>
+                </div>
+                <p id="audio-msg" class="audio-msg" role="status" aria-live="polite"></p>
+            </article>
+
+            <!-- JOGO DA MEMÓRIA -->
+            <article class="bento-card game-card reveal">
+                <div class="card-header">
+                    <h2 class="tag"><span>03</span> THE GAME</h2>
+                    <button type="button" class="restart-btn" id="restart-btn">↻ Embaralhar</button>
+                </div>
+                <h3 class="game-title">Memórias <em>da Suzana</em></h3>
+                <p class="game-sub">Encontre os 6 pares de fotos para ganhar o selo oficial da edição.</p>
+
+                <div class="memory-grid" id="memory-grid"></div>
+
+                <div class="game-stats" aria-live="off">
+                    <div><strong id="moves">0</strong><span>jogadas</span></div>
+                    <div><strong id="timer">0:00</strong><span>tempo</span></div>
+                    <div><strong id="pairs">0/6</strong><span>pares</span></div>
+                </div>
+                <p id="game-status" class="game-status" role="status" aria-live="polite"></p>
+            </article>
+
+            <!-- GALERIA EM MOSAICO -->
+            <article class="bento-card gallery-card reveal">
+                <div class="card-header">
+                    <h2 class="tag"><span>04</span> MEMORIES GALLERY</h2>
+                    <span class="hint">toque para ampliar</span>
+                </div>
+                <div class="mosaic" id="gallery">
+                    <button type="button" class="photo-tile" data-src="assets/images/suzi-1.jpeg"
+                        data-caption="Iconic since day 1 💅" aria-label="Ampliar foto: Iconic moment">
+                        <img src="assets/images/suzi-7.jpeg" alt="Suzana em um momento icônico" loading="lazy"
+                            decoding="async">
+                        <span class="photo-caption">Iconic moment ✨</span>
+                    </button>
+                    <button type="button" class="photo-tile" data-src="assets/images/suzi-2.jpeg"
+                        data-caption="Serving looks 👑" aria-label="Ampliar foto: Serving looks">
+                        <img src="assets/images/suzi-2.jpeg" alt="Suzana exibindo um look" loading="lazy"
+                            decoding="async">
+                        <span class="photo-caption">Serving looks 👑</span>
+                    </button>
+                    <button type="button" class="photo-tile" data-src="assets/images/suzi-3.jpeg"
+                        data-caption="Main character energy 🔥" aria-label="Ampliar foto: Main character">
+                        <img src="assets/images/suzi-3.jpeg" alt="Suzana com energia de protagonista" loading="lazy"
+                            decoding="async">
+                        <span class="photo-caption">Main character 🔥</span>
+                    </button>
+                    <button type="button" class="photo-tile" data-src="assets/images/nos-juntas-2.jpeg"
+                        data-caption="Nossa amizade ❤️" aria-label="Ampliar foto: Nós juntas">
+                        <img src="assets/images/nos-juntas-2.jpeg" alt="Suzana e a amiga juntas" loading="lazy"
+                            decoding="async">
+                        <span class="photo-caption">Nós juntas 🤍</span>
+                    </button>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Feito com carinho para a Suzana • 21 anos de brilho ✨</p>
+    </footer>
+
+    <!-- MODAL DE RECOMPENSA (SELO) -->
+    <div id="reward-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="reward-title" hidden>
+        <div class="modal-content">
+            <button type="button" class="close-btn" id="modal-close" aria-label="Fechar">×</button>
+            <img src="assets/images/selo-dourado.png" alt="Selo dourado: aprovada na edição de 21 anos"
+                class="seal-img">
+            <h2 id="reward-title">APPROVED: SUZANA’S 21st EDITION</h2>
+            <p class="modal-sub" id="reward-msg">Você encontrou todas as memórias!</p>
+            <p class="reward-stats" id="reward-stats"></p>
+
+            <div class="forecast-box">
+                <h3>🔮 O Spoiler dos 21 Anos</h3>
+                <ul>
+                    <li><strong>✨ Vibe dos 21:</strong> Um ano de brilho absoluto, paz de espírito e looks impecáveis.
+                    </li>
+                    <li><strong>🚀 Carreira &amp; Projetos:</strong> Conquistas que você planejou finalmente se tornando
+                        realidade.</li>
+                    <li><strong>🤍 O Bônus:</strong> A certeza de que em cada passo desse ano, estarei ao seu lado!</li>
+                </ul>
+            </div>
+            <button type="button" class="retry-btn" id="retry-btn">↻ Jogar de novo</button>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada" hidden>
+        <button type="button" class="lb-close" id="lb-close" aria-label="Fechar foto">×</button>
+        <button type="button" class="lb-nav lb-prev" id="lb-prev" aria-label="Foto anterior">‹</button>
+        <figure class="lb-figure">
+            <img id="lightbox-img" src="" alt="">
+            <figcaption id="lightbox-caption" class="lightbox-caption"></figcaption>
+        </figure>
+        <button type="button" class="lb-nav lb-next" id="lb-next" aria-label="Próxima foto">›</button>
+    </div>
+
+    <canvas id="confetti" aria-hidden="true"></canvas>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
