@@ -1020,35 +1020,6 @@ button {
     margin-top: 3px;
 }
 
-.seal-img {
-    width: 300px;
-    margin: 0 auto 15px;
-    transform: rotate(-5deg);
-    filter: drop-shadow(0 8px 14px rgba(204, 166, 37, 0.5));
-}
-
-.certificate-badge {
-    position: relative;
-    background: none;
-    border: none;
-    box-shadow: none;
-}
-
-.seal-bg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    z-index: 0;
-}
-
-.badge-score,
-.badge-text {
-    position: relative;
-    z-index: 1;
-}
-
 /* ==========================================================================
    MODAL & LIGHTBOX
    ========================================================================== */
@@ -1277,6 +1248,43 @@ button {
 
     .lb-prev { left: 24px; }
     .lb-next { right: 24px; }
+}
+
+/* ==========================================================================
+   AJUSTES SÓ PARA CELULAR (o computador não é afetado)
+   ========================================================================== */
+@media (max-width: 700px) {
+    /* O "21" sobe para o topo da capa e não fica mais sobre a frase */
+    .hero-21 {
+        top: 14px;
+        bottom: auto;
+        right: 16px;
+        font-size: clamp(4.5rem, 24vw, 7rem);
+        -webkit-text-stroke-width: 1.5px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Mosaico: fotos menos cortadas */
+    .mosaic {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 190px;
+    }
+
+    .photo-tile:nth-child(1) {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+
+    .photo-tile:nth-child(4) {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    /* Prioriza a parte de cima da foto, onde ficam os rostos */
+    .photo-tile img {
+        object-position: center 25%;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
