@@ -1,0 +1,115 @@
+/* ==========================================================================
+   EXTRAS 2 — carregue DEPOIS do style.css e do extras.css
+   ========================================================================== */
+
+/* ---------- SUMÁRIO (menu fixo no rodapé) ---------- */
+body { padding-bottom: 96px; }
+.toc {
+    position: fixed; left: 50%; bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    transform: translateX(-50%); z-index: 2700; display: flex; gap: 2px;
+    max-width: calc(100vw - 20px); overflow-x: auto; padding: 6px; border-radius: 999px;
+    background: rgba(46, 7, 13, .93); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 14px 30px -10px rgba(0, 0, 0, .5); scrollbar-width: none;
+}
+.toc::-webkit-scrollbar { display: none; }
+.toc a {
+    flex-shrink: 0; color: var(--off-white); text-decoration: none; font-size: .72rem;
+    font-weight: 600; letter-spacing: 1px; padding: 9px 14px; border-radius: 999px;
+    transition: background .3s, color .3s;
+}
+.toc a.active { background: var(--gold-grad); color: var(--burgundy-deep); }
+
+/* ---------- GALERIA SCRAPBOOK ---------- */
+.mosaic { position: relative; }
+.mosaic.scrap {
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    grid-auto-rows: auto; gap: 34px 22px; padding: 18px 6px 10px;
+}
+.mosaic.scrap .photo-tile:nth-child(n) {
+    grid-column: auto; grid-row: auto; aspect-ratio: 4 / 5;
+    display: flex; flex-direction: column;
+    background: #fffdf8; padding: 12px 12px 54px; border-radius: 4px; overflow: visible;
+    box-shadow: 0 14px 26px -12px rgba(0, 0, 0, .55);
+    transform: rotate(var(--r, 0deg));
+}
+.mosaic.scrap .photo-tile:nth-child(1) { --r: -3deg; }
+.mosaic.scrap .photo-tile:nth-child(2) { --r: 2.5deg; }
+.mosaic.scrap .photo-tile:nth-child(3) { --r: -2deg; }
+.mosaic.scrap .photo-tile:nth-child(4) { --r: 3deg; }
+.mosaic.scrap .photo-tile img { flex: 1; min-height: 0; border-radius: 2px; }
+.mosaic.scrap .photo-tile:hover img,
+.mosaic.scrap .photo-tile:focus-visible img { transform: none; }
+/* fita adesiva */
+.mosaic.scrap .photo-tile::after {
+    inset: auto; left: 50%; top: -12px; width: 84px; height: 24px; opacity: 1;
+    background: rgba(243, 225, 166, .82); box-shadow: 0 2px 5px rgba(0, 0, 0, .15);
+    transform: translateX(-50%) rotate(-3deg);
+}
+.mosaic.scrap .photo-caption {
+    left: 0; right: 0; bottom: 12px; text-align: center; font-size: 1.8rem;
+    color: var(--burgundy); text-shadow: none;
+}
+/* adesivos arrastáveis */
+.drag-sticker {
+    position: absolute; z-index: 5; font-size: 2.5rem; line-height: 1; cursor: grab;
+    touch-action: none; user-select: none; -webkit-user-select: none;
+    transform: rotate(var(--rot, 0deg)); transition: transform .2s;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, .35));
+}
+.drag-sticker.dragging { cursor: grabbing; transform: rotate(var(--rot, 0deg)) scale(1.25); }
+
+/* ---------- CONTRACAPA ---------- */
+.back-cover {
+    margin-top: 40px; padding: clamp(28px, 6vw, 64px) 20px; border-radius: var(--radius-lg);
+    text-align: center; color: var(--off-white);
+    background: radial-gradient(circle at 20% 0%, rgba(204, 166, 37, .25), transparent 55%),
+        linear-gradient(160deg, var(--burgundy-light), var(--burgundy-deep));
+    border: 1px solid rgba(204, 166, 37, .3);
+}
+.back-cover .bc-kicker { font-size: .72rem; letter-spacing: 4px; font-weight: 600; color: var(--gold-light); }
+.back-cover h2 {
+    font-family: var(--font-vogue); font-weight: 900; font-size: clamp(2.2rem, 7vw, 4.4rem);
+    line-height: 1; margin: 10px 0 18px;
+}
+.back-cover h2 em { font-weight: 400; }
+.back-cover .bc-phrase {
+    font-family: var(--font-handwriting); font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+    line-height: 1.15; max-width: 560px; margin: 0 auto 26px;
+}
+.barcode {
+    display: inline-block; background: #fff; padding: 12px 16px 8px; border-radius: 8px;
+    color: #111; font-size: .68rem; letter-spacing: 4px; font-variant-numeric: tabular-nums;
+}
+.barcode svg { display: block; width: min(200px, 60vw); height: 56px; margin-bottom: 4px; }
+
+/* ---------- EQUALIZADOR REAL ---------- */
+.eq.real span { animation: none !important; transform: scaleY(.12); transition: transform .06s linear; }
+
+/* ==========================================================================
+   BOTÃO DE PLAY REFINADO + PLAYER RESPONSIVO
+   (troca os símbolos ▶ ❚❚, que viram emoji no celular, por ícones desenhados)
+   ========================================================================== */
+.play-btn {
+    font-size: 0; line-height: 0; color: transparent; position: relative;
+    width: clamp(46px, 13vw, 54px); height: clamp(46px, 13vw, 54px);
+    box-shadow: 0 0 0 4px rgba(204, 166, 37, .18), 0 8px 18px -8px rgba(204, 166, 37, .7);
+}
+.play-btn::before {
+    content: ""; position: absolute; inset: 0; margin: auto; width: 38%; height: 38%;
+    background: var(--burgundy-deep);
+    clip-path: polygon(20% 6%, 94% 50%, 20% 94%); /* triângulo de play */
+    transform: translateX(6%);
+}
+.playing .play-btn::before {
+    transform: none; clip-path: none; border-radius: 2px; width: 34%; height: 38%;
+    background: linear-gradient(90deg, var(--burgundy-deep) 0 36%, transparent 36% 64%, var(--burgundy-deep) 64% 100%);
+}
+
+.seek { height: 28px; padding: 11px 0; background-clip: content-box; touch-action: pan-y; }
+.seek-row { min-width: 0; }
+
+@media (max-width: 600px) {
+    .player-controls { gap: 12px; }
+    .seek-row { gap: 8px; }
+    .time { font-size: .68rem; min-width: 28px; }
+}
