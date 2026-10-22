@@ -1,0 +1,89 @@
+/* ==========================================================================
+   EXTRAS — carregue DEPOIS do style.css
+   ========================================================================== */
+:root { --cover: url("assets/images/capa-vogue.jpeg"); } /* ajuste o nome se for diferente */
+
+body.locked { overflow: hidden; }
+
+/* ---------- ABERTURA: a capa "abre" ao toque ---------- */
+.intro {
+    position: fixed; inset: 0; z-index: 4000; display: flex; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+.intro-half {
+    width: 50%; height: 100%;
+    background-image: linear-gradient(rgba(46,7,13,.45), rgba(46,7,13,.85)), var(--cover);
+    background-size: 100% 100%, 200% 100%;
+    background-color: var(--burgundy-deep);
+    transition: transform 1.2s var(--ease);
+}
+.intro-l { background-position: 0 0, 0 30%; }
+.intro-r { background-position: 0 0, 100% 30%; border-left: 1px solid rgba(204,166,37,.6); }
+.intro-center {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 14px; text-align: center;
+    color: var(--off-white); padding: 20px; transition: opacity .5s ease;
+}
+.intro-center .vogue-logo { color: var(--off-white); }
+.intro-center small { letter-spacing: 4px; font-size: .75rem; font-weight: 600; }
+.intro-hint {
+    margin-top: 10px; padding: 12px 26px; border-radius: 999px; font-weight: 800;
+    letter-spacing: 3px; font-size: .75rem; color: var(--burgundy-deep);
+    background: var(--gold-grad); animation: introPulse 1.8s ease-in-out infinite;
+}
+@keyframes introPulse { 50% { transform: scale(1.06); } }
+.intro.open .intro-l { transform: translateX(-101%); }
+.intro.open .intro-r { transform: translateX(101%); }
+.intro.open .intro-center { opacity: 0; }
+
+/* ---------- BRILHOS QUE SEGUEM O MOUSE ---------- */
+.spark {
+    position: fixed; z-index: 2600; pointer-events: none; color: var(--gold);
+    font-size: 14px; transform: translate(-50%, -50%);
+    animation: spark .9s ease-out forwards;
+}
+@keyframes spark { to { opacity: 0; transform: translate(-50%, 30px) scale(.2) rotate(120deg); } }
+
+/* ---------- TILT 3D ---------- */
+.photo-tile, .spread-photo { transition: transform .35s var(--ease), box-shadow .35s; will-change: transform; }
+
+/* ---------- AVISO (toast) ---------- */
+.toast {
+    position: fixed; left: 50%; bottom: 28px; z-index: 3500; max-width: min(90vw, 420px);
+    transform: translate(-50%, 30px); opacity: 0; pointer-events: none;
+    background: var(--burgundy); color: var(--off-white); padding: 14px 22px;
+    border-radius: 18px; text-align: center; font-family: var(--font-handwriting);
+    font-size: 1.7rem; line-height: 1.1; transition: .45s var(--ease);
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------- MENSAGEM SECRETA ---------- */
+.secret-letter { font-family: var(--font-handwriting); font-size: 1.9rem; line-height: 1.15; color: var(--text-dark); margin: 14px 0; text-align: left; }
+
+/* ---------- PLAYLIST ---------- */
+.track-nav { display: flex; gap: 8px; }
+.track-nav button {
+    width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(250,250,250,.35);
+    background: rgba(250,250,250,.08); color: var(--off-white); font-size: 1rem; cursor: pointer;
+}
+.player-controls { flex-wrap: wrap; }
+
+/* ---------- CARD DE VÍDEO ---------- */
+.video-card { grid-column: span 12; }
+.video-card video {
+    width: 100%; max-height: 70vh; border-radius: 20px; object-fit: cover;
+    background: var(--burgundy-deep); box-shadow: 0 20px 40px -22px rgba(74,14,23,.7);
+}
+
+@media (hover: none) { .spark { display: none; } }
+
+/* Foto "Nós juntas" mais alta no celular e no tablet */
+@media (max-width: 600px) {
+    .photo-tile:nth-child(4) { grid-row: span 2; }
+    .photo-tile:nth-child(4) img { object-position: center 20%; }
+}
+
+@media (min-width: 601px) and (max-width: 960px) {
+    .mosaic { grid-auto-rows: clamp(170px, 26vw, 230px); }
+    .photo-tile img { object-position: center 25%; }
+}
